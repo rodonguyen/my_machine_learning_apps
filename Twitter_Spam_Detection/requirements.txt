@@ -1,0 +1,4 @@
+mljar-mercury
+pandas
+keras
+tensorflow
