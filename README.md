@@ -1,9 +1,5 @@
-# my_machine_learning_apps
+# spam_tweet_detector
 
+Utilizing 3 machine learning models, SVM, LSTM and Naive Bayes, to identify 'Spam' or 'Quality' tweet.
 
-1. source my_venv/bin/activate
-2. mercury watch YOUR_NOTEBOOK.ipynb 
-3. jupyter notebook
-
-~/.local/bin/mercury add LSTM.ipynb
-~/.local/bin/mercury watch LSTM.ipynb 
+The models have been trained in advance. If you want to see the Project itself including how the model architectures were chosen and deep analysis on performance, have a look at this [repo](https://github.com/rodonguyen/showcase_AI_ML/tree/master/1.%20Twitter%20Spam%20Detection).
