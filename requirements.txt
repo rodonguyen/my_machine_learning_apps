@@ -1,4 +1,4 @@
-pandas
-keras
-tensorflow-cpu
-sklearn
+pandas==1.5.0
+tensorflow-cpu==2.10.0
+scikit-learn==1.1.2
+numpy==1.23.3

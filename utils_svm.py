@@ -1,5 +1,4 @@
-from tensorflow import keras 
-import pandas, tensorflow, utils
+import pandas, utils
 
 
 def load_svm_model():
