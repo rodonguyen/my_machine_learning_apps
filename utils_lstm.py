@@ -21,18 +21,18 @@ def load_LSTM_model():
   lstm_model_2input = keras.models.Model([inputA, inputB], output)
 
   lstm_model_2input.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-  lstm_model_2input.load_weights("LSTM_model_2inputs_969.h5")
+  lstm_model_2input.load_weights("pickles/LSTM_model_2inputs_969.h5")
 
   return lstm_model_2input
 
 
 def preprocessing_input(input):
   columns_to_be_standardised = ['following', 'followers', 'actions']
-  input_df = pandas.DataFrame(data=input)
-  sigma, mu, tokenizer = utils.load_pickle('sigma_train.pkl'), utils.load_pickle('mu_train.pkl'), utils.load_pickle('tokeniser_train.pkl')
+  input_df = pandas.DataFrame(data=input, columns=['Tweet', 'following', 'followers', 'actions', 'is_retweet'])
+  sigma, mu, tokenizer = utils.load_pickle('pickles/LSTM_sigma_train.pkl'), utils.load_pickle('pickles/LSTM_mu_train.pkl'), utils.load_pickle('pickles/LSTM_tokeniser_train.pkl')
   print(sigma, mu)
   # PROCESS 'tweet'
-  tweet_las, tweet_tokenised = utils.tokenise(input_df['tweet'], tokenizer)
+  tweet_las, tweet_tokenised = utils.tokenise(input_df['Tweet'], tokenizer)
   tweet_tensor = tensorflow.convert_to_tensor(tweet_tokenised)
   # print(tweet_las)
   # print(tweet_tokenised)
@@ -40,7 +40,7 @@ def preprocessing_input(input):
 
   # PROCESS 'following' 'followers' 'actions' 'is_retweet'
   others_col_std = utils.standardise(input_df, mu, sigma, columns_to_be_standardised)
-  others_col_std.drop(['tweet'], axis=1, inplace=True)
+  others_col_std.drop(['Tweet'], axis=1, inplace=True)
   # print(others_col_std)
 
   return tweet_tensor, others_col_std
