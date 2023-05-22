@@ -1,5 +1,6 @@
 pandas==1.5.0
 tensorflow-cpu==2.10.0
 scikit-learn==1.1.2
+scipy==1.9.1
 numpy==1.23.3
-sklearn
+streamlit==1.16.0
